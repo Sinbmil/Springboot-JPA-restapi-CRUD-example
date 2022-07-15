@@ -16,17 +16,19 @@ import java.util.Date;
 public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private long id;
+    @Column(name="member_num")
+    private long member_num;
     private String name;
-    private int age;
+    private String id;
+    private String pw;
     private String address;
     @CreationTimestamp
     private Date createdAt;
 
-    public Member(String name, int age, String address){
+    public Member(String name, String id, String pw, String address){
         this.name = name;
-        this.age = age;
+        this.id = id;
+        this.pw = pw;
         this.address = address;
     }
 }
