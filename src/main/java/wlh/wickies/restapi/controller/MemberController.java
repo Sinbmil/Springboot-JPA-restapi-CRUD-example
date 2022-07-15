@@ -26,8 +26,8 @@ public class MemberController {
         return memberRepository.findAll();
     }
 
-    @GetMapping("/select/{member_num}") // READ
-    public Member selectOne(@PathVariable("member_num") long id){
+    @GetMapping("/select/{id}") // READ
+    public Member selectOne(@PathVariable("id") long id){
         return memberRepository.findById(id).orElse(null);
     }
 
