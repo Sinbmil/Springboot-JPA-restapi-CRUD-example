@@ -14,11 +14,13 @@ import java.util.Date;
 @Entity
 @Table(name = "member")
 public class Member {
-    @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="member_num")
     private long member_num;
     private String name;
+
+    @Id
     private String id;
     private String pw;
     private String address;

@@ -27,12 +27,12 @@ public class MemberController {
     }
 
     @GetMapping("/select/{id}") // READ
-    public Member selectOne(@PathVariable("id") long id){
+    public Member selectOne(@PathVariable("id") String id){
         return memberRepository.findById(id).orElse(null);
     }
 
     @PostMapping("/update/{member_num}") // UPDATE
-    public Member updateOne(@PathVariable("member_num") long id, @RequestBody Map<String, String> map){
+    public Member updateOne(@PathVariable("member_num") String id, @RequestBody Map<String, String> map){
         System.out.println(id);
         System.out.println(map);
         Member member = memberRepository.findById(id).orElse(null);
@@ -44,7 +44,7 @@ public class MemberController {
     }
 
     @PostMapping("/delete/{member_num}") // DELETE
-    public String deleteOne(@PathVariable("member_num") long id){
+    public String deleteOne(@PathVariable("member_num") String id){
         memberRepository.deleteById(id);
         return "삭제 완료";
     }
