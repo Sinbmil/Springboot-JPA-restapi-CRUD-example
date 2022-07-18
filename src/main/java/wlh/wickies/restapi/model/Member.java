@@ -16,7 +16,6 @@ import java.util.Date;
 public class Member {
 
     @Id // 기본키로 지정
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private String pw;
     private String name;
