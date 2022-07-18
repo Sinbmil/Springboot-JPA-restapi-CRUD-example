@@ -15,10 +15,8 @@ import java.util.Date;
 @Table(name = "member")
 public class Member {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="member_num")
-    private long member_num;
     @Id // 기본키로 지정
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private String pw;
     private String name;

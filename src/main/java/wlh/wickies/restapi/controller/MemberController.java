@@ -31,8 +31,8 @@ public class MemberController {
         return memberRepository.findById(id).orElse(null);
     }
 
-    @PostMapping("/update/{member_num}") // UPDATE
-    public Member updateOne(@PathVariable("member_num") String id, @RequestBody Map<String, String> map){
+    @PostMapping("/update/{id}") // UPDATE
+    public Member updateOne(@PathVariable("id") String id, @RequestBody Map<String, String> map){
         System.out.println(id);
         System.out.println(map);
         Member member = memberRepository.findById(id).orElse(null);
@@ -44,8 +44,8 @@ public class MemberController {
         return memberRepository.save(member);
     }
 
-    @PostMapping("/delete/{member_num}") // DELETE
-    public String deleteOne(@PathVariable("member_num") String id){
+    @PostMapping("/delete/{id}") // DELETE
+    public String deleteOne(@PathVariable("id") String id){
         memberRepository.deleteById(id);
         return "삭제 완료";
     }
