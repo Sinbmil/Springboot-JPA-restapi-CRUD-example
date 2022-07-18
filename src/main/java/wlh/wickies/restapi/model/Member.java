@@ -18,19 +18,20 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="member_num")
     private long member_num;
-    private String name;
-
-    @Id
+    @Id // 기본키로 지정
     private String id;
     private String pw;
+    private String name;
     private String address;
+    private String phone;
     @CreationTimestamp
     private Date createdAt;
 
-    public Member(String name, String id, String pw, String address){
-        this.name = name;
+    public Member(String id, String pw, String name, String address, String phone){
         this.id = id;
         this.pw = pw;
+        this.name = name;
         this.address = address;
+        this.phone = phone;
     }
 }

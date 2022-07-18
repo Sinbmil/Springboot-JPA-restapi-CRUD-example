@@ -17,7 +17,7 @@ public class MemberController {
     @PostMapping("/insert") // CREATE
     public Member insert(@RequestBody Map<String, String> map){
         return memberRepository.save(
-                new Member(map.get("name"), map.get("id"),  map.get("pw"), map.get("address"))
+                new Member(map.get("id"), map.get("pw"),  map.get("name"), map.get("address"), map.get("phone"))
         );
     }
 
@@ -36,10 +36,11 @@ public class MemberController {
         System.out.println(id);
         System.out.println(map);
         Member member = memberRepository.findById(id).orElse(null);
-        member.setName(map.get("name"));
         member.setId(map.get("id"));
         member.setPw(map.get("pw"));
+        member.setName(map.get("name"));
         member.setAddress(map.get("address"));
+        member.setPhone(map.get("phone"));
         return memberRepository.save(member);
     }
 
