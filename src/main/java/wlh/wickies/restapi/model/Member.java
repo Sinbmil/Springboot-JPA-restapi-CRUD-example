@@ -20,7 +20,6 @@ public class Member {
     private String pw;
     private String name;
     private String address;
-
     private String phone;
     @CreationTimestamp
     private Date createdAt;
