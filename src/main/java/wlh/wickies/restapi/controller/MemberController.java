@@ -31,6 +31,11 @@ public class MemberController {
         return memberRepository.findById(id).orElse(null);
     }
 
+    @GetMapping("/select/{name}/{phone}") // READ
+    public Member find_id(@PathVariable("name") String name, @PathVariable("phone") String phone){
+        return memberRepository.findById(phone).orElse(null);
+    }
+
     @PostMapping("/update/{id}") // UPDATE
     public Member updateOne(@PathVariable("id") String id, @RequestBody Map<String, String> map){
         System.out.println(id);
