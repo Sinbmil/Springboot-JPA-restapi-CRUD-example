@@ -29,6 +29,16 @@ public class MemberController {
     @GetMapping("/select/{id}") // READ
     public Member selectOne(@PathVariable("id") String id){return memberRepository.findById(id).orElse(null);}
 
+    @GetMapping("/select/{name}/{phone}")
+    public Member findId(@PathVariable("name") String name, @PathVariable("phone") String phone){
+        List<Member> members = memberRepository.findByNameAndPhone(name, phone);
+        if(members.size() == 1){
+            return members.get(0);
+        } else{
+            throw new IllegalStateException("아이디가 존재하지 않습니다.");
+        }
+    }
+
    // @GetMapping("/select/{phone}") // READ
    // public Member find_id(@PathVariable("phone") String phone){return memberRepository.findById(phone).orElse(null);}
 
