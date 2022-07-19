@@ -21,7 +21,6 @@ public class Member {
     private String name;
     private String address;
 
-    @Id
     private String phone;
     @CreationTimestamp
     private Date createdAt;
