@@ -30,10 +30,10 @@ public class MemberController {
     public Member selectOne(@PathVariable("id") String id){return memberRepository.findById(id).orElse(null);}
 
     @GetMapping("/select/{name}/{phone}")
-    public Member findId(@PathVariable("name") String name, @PathVariable("phone") String phone){
+    public String findId(@PathVariable("name") String name, @PathVariable("phone") String phone){
         List<Member> members = memberRepository.findByNameAndPhone(name, phone);
         if(members.size() == 1){
-            return members.get(0);
+            return members.get(0).getId();
         } else{
             throw new IllegalStateException("아이디가 존재하지 않습니다.");
         }
@@ -48,10 +48,6 @@ public class MemberController {
             throw new IllegalStateException("아이디가 존재하지 않습니다.");
         }
     }
-
-
-   // @GetMapping("/select/{phone}") // READ
-   // public Member find_id(@PathVariable("phone") String phone){return memberRepository.findById(phone).orElse(null);}
 
     @PostMapping("/update/{id}") // UPDATE
     public Member updateOne(@PathVariable("id") String id, @RequestBody Map<String, String> map){
