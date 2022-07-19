@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface MemberRepository extends JpaRepository<Member, String> {
 
-    List<Member> findByNameAndPhone(String name, String phone);
+    List<Member> findByNameAndPhone(String name, String phone); // 아이디 찾기
+    List<Member> findByIdAndPhone(String id, String phone); // 비밀번호 찾기
 }

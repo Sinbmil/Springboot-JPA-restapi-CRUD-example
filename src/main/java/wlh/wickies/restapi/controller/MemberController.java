@@ -39,6 +39,17 @@ public class MemberController {
         }
     }
 
+    @GetMapping("/select/{id}/{phone}")
+    public Member findPw(@PathVariable("id") String id, @PathVariable("phone") String phone){
+        List<Member> members = memberRepository.findByIdAndPhone(id, phone);
+        if(members.size() == 1){
+            return members.get(0);
+        } else{
+            throw new IllegalStateException("아이디가 존재하지 않습니다.");
+        }
+    }
+
+
    // @GetMapping("/select/{phone}") // READ
    // public Member find_id(@PathVariable("phone") String phone){return memberRepository.findById(phone).orElse(null);}
 
