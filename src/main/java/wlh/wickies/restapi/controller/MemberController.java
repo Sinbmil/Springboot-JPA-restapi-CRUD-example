@@ -39,7 +39,7 @@ public class MemberController {
         }
     }
 
-    @GetMapping("/select/{id}/{phone}")
+    @GetMapping("/select2/{id}/{phone}")
     public Member findPw(@PathVariable("id") String id, @PathVariable("phone") String phone){
         List<Member> members = memberRepository.findByIdAndPhone(id, phone);
         if(members.size() == 1){
