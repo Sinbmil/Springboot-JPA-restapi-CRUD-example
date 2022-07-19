@@ -33,7 +33,7 @@ public class MemberController {
     public Member findId(@PathVariable("name") String name, @PathVariable("phone") String phone){
         List<Member> members = memberRepository.findByNameAndPhone(name, phone);
         if(members.size() == 1){
-            return members.get(0).getId();
+            return members.get(0);
         } else{
             throw new IllegalStateException("아이디가 존재하지 않습니다.");
         }
