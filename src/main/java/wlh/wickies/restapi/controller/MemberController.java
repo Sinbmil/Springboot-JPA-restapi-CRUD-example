@@ -29,8 +29,8 @@ public class MemberController {
     @GetMapping("/select/{id}") // READ
     public Member selectOne(@PathVariable("id") String id){return memberRepository.findById(id).orElse(null);}
 
-    @GetMapping("/select/{phone}") // READ
-    public Member find_id(@PathVariable("phone") String phone){return memberRepository.findById(phone).orElse(null);}
+   // @GetMapping("/select/{phone}") // READ
+   // public Member find_id(@PathVariable("phone") String phone){return memberRepository.findById(phone).orElse(null);}
 
     @PostMapping("/update/{id}") // UPDATE
     public Member updateOne(@PathVariable("id") String id, @RequestBody Map<String, String> map){
