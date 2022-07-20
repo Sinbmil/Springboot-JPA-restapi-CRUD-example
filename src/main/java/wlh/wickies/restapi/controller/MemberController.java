@@ -66,6 +66,13 @@ public class MemberController {
         return memberRepository.save(member);
     }
 
+    @PostMapping("/update2/{address}") // UPDATE
+    public Member updateAddress(@PathVariable("address") String address, @RequestBody Map<String, String> map){
+        Member member = memberRepository.findById(address).orElse(null);
+        member.setAddress(map.get("address"));
+        return memberRepository.save(member);
+    }
+
     @PostMapping("/delete/{id}") // DELETE
     public String deleteOne(@PathVariable("id") String id){
         memberRepository.deleteById(id);
