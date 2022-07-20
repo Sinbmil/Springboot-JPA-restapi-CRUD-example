@@ -66,9 +66,9 @@ public class MemberController {
         return memberRepository.save(member);
     }
 
-    @PostMapping("/update2/{address}") // UPDATE
-    public Member updateAddress(@PathVariable("address") String address, @RequestBody Map<String, String> map){
-        Member member = memberRepository.findById(address).orElse(null);
+    @PostMapping("/update2/{id}") // UPDATE
+    public Member updateAddress(@PathVariable("id") String id, @RequestBody Map<String, String> map){
+        Member member = memberRepository.findById(id).orElse(null);
         member.setAddress(map.get("address"));
         return memberRepository.save(member);
     }
