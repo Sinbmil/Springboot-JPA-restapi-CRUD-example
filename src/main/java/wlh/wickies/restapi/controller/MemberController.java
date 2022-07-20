@@ -73,10 +73,9 @@ public class MemberController {
         return memberRepository.save(member);
     }
 
-    @PostMapping("/delete/{id}") // DELETE
+    @DeleteMapping("/delete/{id}") // DELETE
     public String deleteOne(@PathVariable("id") String id){
         memberRepository.deleteById(id);
         return "삭제 완료";
     }
-
 }
