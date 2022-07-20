@@ -61,14 +61,8 @@ public class MemberController {
 
     @PostMapping("/update/{id}") // UPDATE
     public Member updateOne(@PathVariable("id") String id, @RequestBody Map<String, String> map){
-        System.out.println(id);
-        System.out.println(map);
         Member member = memberRepository.findById(id).orElse(null);
-        member.setId(map.get("id"));
         member.setPw(map.get("pw"));
-        member.setName(map.get("name"));
-        member.setAddress(map.get("address"));
-        member.setPhone(map.get("phone"));
         return memberRepository.save(member);
     }
 
